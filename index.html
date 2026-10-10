@@ -41,6 +41,16 @@ button{cursor:pointer}
 
 @media (max-width:400px){.top .who{display:none}}
 @media (max-width:360px){.drillsbtn{font-size:1.25rem!important;padding:1rem .6rem!important}}
+.langsw{display:inline-flex;border:1px solid var(--line);border-radius:99px;overflow:hidden;background:var(--surface);flex:0 0 auto}
+.langsw button{border:0;background:transparent;padding:.35rem .75rem;font-weight:700;font-size:.85rem;color:var(--muted);min-width:2.6rem}
+.langsw button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.loginbar{display:flex;justify-content:flex-end;margin:-1rem 0 .8rem}
+.top .langsw{background:transparent;border-color:rgba(255,255,255,.6)}
+.top .langsw button{color:#fff;padding:.3rem .55rem;min-width:2.2rem}
+.top .langsw button[aria-pressed="true"]{background:#fff;color:var(--court)}
+@media (pointer:coarse){.langsw button{min-height:40px}}
+@media (max-width:520px){.top{gap:.5rem}.top .name{font-size:1.15rem;min-width:0;overflow:hidden;text-overflow:ellipsis}.top .langsw button{padding:.25rem .4rem;min-width:2rem;font-size:.8rem}.top button[data-action=logout]{padding:.3rem .55rem;font-size:.9rem}}
+@media (max-width:390px){.top .name{display:none}.top .langsw{margin-left:auto}}
 /* login */
 .hero{display:flex;align-items:center;gap:1rem}
 .hero img{width:clamp(84px,18vw,120px);height:auto;flex:0 0 auto}
@@ -185,9 +195,12 @@ dl.sum dd{margin:0;font-weight:500}
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
 var LOGO='data:image/webp;base64,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';
-(function(){
+var DRILLS_LINKS={pt:'drills.html',en:'drills-en.html'};
+var LANGKEY='aulaspadel-lang';
+var LANG=(function(){try{var l=localStorage.getItem(LANGKEY);if(l==='pt'||l==='en')return l}catch(e){}return /^pt/i.test(navigator.language||'')?'pt':'en'})();
+function APP_PT(){(function(){
 'use strict';
-var DRILLS_URL='drills.html';
+var DRILLS_URL=DRILLS_LINKS[LANG];
 var KEY='aulaspadel-portal-demo:v1', SKEY=KEY+':sessao';
 var memStore={};
 function lsGet(k){try{return localStorage.getItem(k)}catch(e){return memStore[k]||null}}
@@ -217,6 +230,7 @@ function money(v){return '$'+(Math.round(v)===v?v:v.toFixed(2))}
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 function uid(p){return p+'-'+Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
 var LEVELS=['Principiante','Intermediário','Avançado'];
+function lv(x){return x}
 
 /* ---------- dados de demonstração ---------- */
 function seed(){
@@ -247,7 +261,7 @@ if(!S||S.v!==1)S=seed();
 function save(){lsSet(KEY,JSON.stringify(S))}
 save();
 
-var me=null, ui={tab:null,day:0,dur:60,week:0,authMode:'login'};
+var me=null, ui={tab:lsGet(KEY+':tab')||null,day:0,dur:60,week:0,authMode:'login'};lsDel(KEY+':tab');document.documentElement.lang=LANG==='en'?'en':'pt-BR';
 function user(id){return S.users.find(function(u){return u.id===id})}
 function first(id){var u=user(id);return u?u.name.split(' ')[0]:'?'}
 var sid=lsGet(SKEY); if(sid){me=user(sid)||null}
@@ -281,12 +295,12 @@ function statusTag(b){
   if(b.status==='declined')return '<span class="tag off">Recusada</span>';
   return '<span class="tag off">Cancelada</span>';
 }
-function kind(b){return b.type==='private'?'Aula individual':'Turma '+b.level.toLowerCase()}
+function kind(b){return b.type==='private'?'Aula individual':'Turma '+lv(b.level).toLowerCase()}
 
 /* ---------- login ---------- */
 function loginHTML(){
   var reg=ui.authMode==='register';
-  return '<div class="login"><div class="hero"><img src="'+LOGO+'" alt=""><div><h1>Aulas de Padel</h1><p class="lead">Marque aulas com o professor, entre em turmas abertas e acompanhe seu pacote de aulas.</p></div></div>'+
+  return '<div class="login"><div class="loginbar">'+'<div class="langsw" role="group" aria-label="Idioma / Language"><button data-action="lang" data-l="pt" aria-pressed="'+(LANG==='pt')+'" lang="pt">PT</button><button data-action="lang" data-l="en" aria-pressed="'+(LANG==='en')+'" lang="en">EN</button></div>'+'</div><div class="hero"><img src="'+LOGO+'" alt=""><div><h1>Aulas de Padel</h1><p class="lead">Marque aulas com o professor, entre em turmas abertas e acompanhe seu pacote de aulas.</p></div></div>'+
   '<div class="court" role="group" aria-label="Entrar com uma conta de demonstração">'+
   '<button class="side l" data-action="demo" data-who="professor@demo.nz"><span><b>Professor</b><small>Agenda, pedidos, alunos e horários</small></span></button>'+
   '<div class="net" aria-hidden="true"></div>'+
@@ -296,7 +310,7 @@ function loginHTML(){
   '<label>Nome<input name="name" autocomplete="name" required></label>'+
   '<label>E-mail<input name="email" type="email" autocomplete="email" required></label>'+
   '<label>Senha<input name="pass" type="password" autocomplete="new-password" required minlength="4"></label>'+
-  '<label>Seu nível<select name="level">'+LEVELS.map(function(l){return '<option>'+l+'</option>'}).join('')+'</select></label>'+
+  '<label>Seu nível<select name="level">'+LEVELS.map(function(l){return '<option value="'+l+'">'+lv(l)+'</option>'}).join('')+'</select></label>'+
   '<p class="err" id="authErr"></p><div class="row"><button class="primary" type="submit">Criar conta</button><button class="link" type="button" data-action="authMode" data-m="login">Já tenho conta</button></div></form>'
   :
   '<h2>Entrar</h2><form class="stack" data-form="login" novalidate>'+
@@ -354,7 +368,7 @@ function packView(){
   '<h3>Pedir um pacote</h3><p class="lead">O professor confirma o pacote e os créditos aparecem aqui.</p>'+
   (req.length?'<p class="empty">Pedido de '+req.map(function(p){return p.size+' aulas'}).join(' e ')+' aguardando o professor.</p>':
   '<div class="row"><button class="primary" data-action="reqPack" data-n="5">Pedir 5 aulas</button><button class="ghost" data-action="reqPack" data-n="10">Pedir 10 aulas</button></div>')+
-  '<h3>Seu nível</h3><div class="row"><select id="lvl" aria-label="Seu nível" style="max-width:260px">'+LEVELS.map(function(l){return '<option'+(l===me.level?' selected':'')+'>'+l+'</option>'}).join('')+'</select><button class="ghost small" data-action="saveLevel">Salvar nível</button></div>';
+  '<h3>Seu nível</h3><div class="row"><select id="lvl" aria-label="Seu nível" style="max-width:260px">'+LEVELS.map(function(l){return '<option value="'+l+'"'+(l===me.level?' selected':'')+'>'+lv(l)+'</option>'}).join('')+'</select><button class="ghost small" data-action="saveLevel">Salvar nível</button></div>';
 }
 
 /* ---------- views do professor ---------- */
@@ -365,10 +379,10 @@ function agendaView(){
   if(pend.length||S.packReqs.length){
     h+='<h3>Pedidos para responder</h3><div class="list">'+pend.map(function(b){
       var u=user(b.studentIds[0]);
-      return '<div class="item"><div class="when">'+fmtHour(b.hour)+'<small>'+fmtDay(b.date)+'</small></div><div class="what"><b>'+esc(u?u.name:'?')+'</b> pediu aula individual de '+b.dur+' min<div class="sub">'+esc(u?u.level:'')+', '+money(bookingPrice(b))+(b.credit&&u&&b.credit[u.id]?', paga com crédito':'')+(b.note?'. Recado: “'+esc(b.note)+'”':'')+'</div></div><div class="acts"><button class="primary small" data-action="confirm" data-id="'+b.id+'">Confirmar</button><button class="ghost small" data-action="decline" data-id="'+b.id+'">Recusar</button></div></div>';
+      return '<div class="item"><div class="when">'+fmtHour(b.hour)+'<small>'+fmtDay(b.date)+'</small></div><div class="what"><b>'+esc(u?u.name:'?')+'</b> pediu aula individual de '+b.dur+' min<div class="sub">'+esc(u?lv(u.level):'')+', '+money(bookingPrice(b))+(b.credit&&u&&b.credit[u.id]?', paga com crédito':'')+(b.note?'. Recado: “'+esc(b.note)+'”':'')+'</div></div><div class="acts"><button class="primary small" data-action="confirm" data-id="'+b.id+'">Confirmar</button><button class="ghost small" data-action="decline" data-id="'+b.id+'">Recusar</button></div></div>';
     }).join('')+S.packReqs.map(function(p){
       var u=user(p.uid);
-      return '<div class="item"><div class="when">Pacote<small>'+p.size+' aulas</small></div><div class="what"><b>'+esc(u?u.name:'?')+'</b> pediu um pacote de '+p.size+' aulas<div class="sub">Hoje tem '+(u?u.credits:0)+' créditos</div></div><div class="acts"><button class="primary small" data-action="approvePack" data-id="'+p.id+'">Aprovar</button><button class="ghost small" data-action="rejectPack" data-id="'+p.id+'">Recusar</button></div></div>';
+      return '<div class="item"><div class="when">Pacote<small>'+p.size+' aulas</small></div><div class="what"><b>'+esc(u?u.name:'?')+'</b> pediu um pacote de '+p.size+' aulas<div class="sub">Hoje tem '+(u?u.credits:0)+((u&&u.credits===1)?' crédito':' créditos')+'</div></div><div class="acts"><button class="primary small" data-action="approvePack" data-id="'+p.id+'">Aprovar</button><button class="ghost small" data-action="rejectPack" data-id="'+p.id+'">Recusar</button></div></div>';
     }).join('')+'</div>';
   }
   var start=addDays(today(),ui.week*7), end=addDays(start,6), tds=ds(today());
@@ -390,7 +404,7 @@ function studentsView(){
   return '<h2>Alunos</h2><p class="lead">Quem cria conta no portal aparece aqui. Ajuste créditos quando o aluno pagar um pacote fora do portal.</p><div class="tablewrap"><table><thead><tr><th>Nome</th><th>Nível</th><th class="num">Próximas</th><th class="num">Créditos</th><th>Ajustar</th></tr></thead><tbody>'+
   st.map(function(u){
     var n=S.bookings.filter(function(b){return active(b)&&b.studentIds.indexOf(u.id)>=0&&startDT(b)>now}).length;
-    return '<tr><td><b>'+esc(u.name)+'</b><br><small style="color:var(--muted)">'+esc(u.email)+'</small></td><td>'+esc(u.level)+'</td><td class="num">'+n+'</td><td class="num">'+(u.credits||0)+'</td><td><div class="row" style="gap:.3rem;flex-wrap:nowrap"><button class="ghost small" data-action="cred" data-id="'+u.id+'" data-n="-1" aria-label="Tirar 1 crédito de '+esc(u.name)+'">−1</button><button class="ghost small" data-action="cred" data-id="'+u.id+'" data-n="5" aria-label="Dar 5 créditos a '+esc(u.name)+'">+5</button><button class="ghost small" data-action="cred" data-id="'+u.id+'" data-n="10" aria-label="Dar 10 créditos a '+esc(u.name)+'">+10</button></div></td></tr>';
+    return '<tr><td><b>'+esc(u.name)+'</b><br><small style="color:var(--muted)">'+esc(u.email)+'</small></td><td>'+esc(lv(u.level))+'</td><td class="num">'+n+'</td><td class="num">'+(u.credits||0)+'</td><td><div class="row" style="gap:.3rem;flex-wrap:nowrap"><button class="ghost small" data-action="cred" data-id="'+u.id+'" data-n="-1" aria-label="Tirar 1 crédito de '+esc(u.name)+'">−1</button><button class="ghost small" data-action="cred" data-id="'+u.id+'" data-n="5" aria-label="Dar 5 créditos a '+esc(u.name)+'">+5</button><button class="ghost small" data-action="cred" data-id="'+u.id+'" data-n="10" aria-label="Dar 10 créditos a '+esc(u.name)+'">+10</button></div></td></tr>';
   }).join('')+'</tbody></table></div>';
 }
 function availView(){
@@ -415,7 +429,7 @@ function render(){
   if(!tabs.some(function(t){return t[0]===ui.tab}))ui.tab=tabs[0][0];
   var pend=coach?pendingCount():0;
   var upcoming=!coach?myBookings().filter(function(b){return active(b)&&b.studentIds.indexOf(me.id)>=0&&startDT(b)>new Date()}).length:0;
-  root.innerHTML='<header class="top"><img class="mark" src="'+LOGO+'" alt=""><span class="name">Aulas de Padel</span><span class="who">'+esc(me.name)+'<small>'+(coach?'Conta de professor':esc(me.level)+', '+(me.credits||0)+((me.credits||0)===1?' crédito':' créditos'))+'</small></span><button data-action="logout">Sair</button></header>'+
+  root.innerHTML='<header class="top"><img class="mark" src="'+LOGO+'" alt=""><span class="name">Aulas de Padel</span><span class="who">'+esc(coach&&me.name==='Professor'?'Professor':me.name)+'<small>'+(coach?'Conta de professor':esc(lv(me.level))+', '+(me.credits||0)+((me.credits||0)===1?' crédito':' créditos'))+'</small></span>'+'<div class="langsw" role="group" aria-label="Idioma / Language"><button data-action="lang" data-l="pt" aria-pressed="'+(LANG==='pt')+'" lang="pt">PT</button><button data-action="lang" data-l="en" aria-pressed="'+(LANG==='en')+'" lang="en">EN</button></div>'+'<button data-action="logout">Sair</button></header>'+
   '<div class="banner">Demonstração: dados só neste navegador.</div>'+
   '<nav class="tabs" role="tablist">'+tabs.map(function(t){var b=t[0]==='agenda'&&pend?' <span class="badge" aria-label="'+pend+' pendentes">'+pend+'</span>':t[0]==='mine'&&upcoming?' <span class="badge">'+upcoming+'</span>':'';return '<button role="tab" aria-selected="'+(ui.tab===t[0])+'" data-action="tab" data-tab="'+t[0]+'">'+t[1]+b+'</button>'}).join('')+(coach?'<a class="tablink" href="'+DRILLS_URL+'" target="_blank" rel="noopener">Drills e modo aula<span class="sr"> (abre em outra aba)</span></a>':'')+'</nav>'+
   '<main class="view" role="tabpanel">'+VIEWS[ui.tab]()+'</main>';
@@ -432,6 +446,7 @@ var A={
   askReset:function(){openSheet('<h2 id="sheetTitle">Restaurar dados da demo?</h2><p>Apaga marcações, contas criadas e mudanças de horário neste navegador e volta aos dados de exemplo.</p><div class="actions"><button class="ghost" data-action="close">Voltar</button><button class="danger" data-action="reset">Restaurar</button></div>')},
   reset:function(){S=seed();save();me=null;lsDel(SKEY);closeSheet();render();toast('Dados da demo restaurados.')},
   close:closeSheet,
+  lang:function(el){var l=el.dataset.l;if(l===LANG)return;lsSet(LANGKEY,l);lsSet(KEY+':tab',ui.tab||'');location.reload()},
   tab:function(el){ui.tab=el.dataset.tab;render();window.scrollTo(0,0)},
   day:function(el){ui.day=+el.dataset.i;render()},
   dur:function(el){ui.dur=+el.dataset.d;render()},
@@ -448,7 +463,7 @@ var A={
   },
   joinGroup:function(el){
     var b=find(el.dataset.id),n=b.studentIds.length,cr=me.credits||0;
-    openSheet('<h2 id="sheetTitle">Entrar na turma</h2><dl class="sum"><dt>Quando</dt><dd>'+fmtDay(b.date)+', '+fmtHour(b.hour)+' a '+fmtHour(b.hour+b.dur/60)+'</dd><dt>Turma</dt><dd>'+b.level+', '+(n+1)+' de '+b.max+' alunos com você</dd><dt>Valor</dt><dd>'+money(bookingPrice(b,n+1))+' por aluno</dd><dt>Pagamento</dt><dd>'+(cr?'Usa 1 crédito do pacote (você tem '+cr+')':'Entra na fatura do mês')+'</dd></dl>'+(b.level!==me.level?'<p class="warnbox">Esta turma é de nível '+b.level.toLowerCase()+' e o seu é '+me.level.toLowerCase()+'. O professor pode sugerir outra turma.</p>':'')+'<div class="actions"><button class="ghost" data-action="close">Voltar</button><button class="primary" data-action="doJoin" data-id="'+b.id+'">Entrar na turma</button></div>');
+    openSheet('<h2 id="sheetTitle">Entrar na turma</h2><dl class="sum"><dt>Quando</dt><dd>'+fmtDay(b.date)+', '+fmtHour(b.hour)+' a '+fmtHour(b.hour+b.dur/60)+'</dd><dt>Turma</dt><dd>'+lv(b.level)+', '+(n+1)+' de '+b.max+' alunos com você</dd><dt>Valor</dt><dd>'+money(bookingPrice(b,n+1))+' por aluno</dd><dt>Pagamento</dt><dd>'+(cr?'Usa 1 crédito do pacote (você tem '+cr+')':'Entra na fatura do mês')+'</dd></dl>'+(b.level!==me.level?'<p class="warnbox">Esta turma é de nível '+lv(b.level).toLowerCase()+' e o seu é '+lv(me.level).toLowerCase()+'. O professor pode sugerir outra turma.</p>':'')+'<div class="actions"><button class="ghost" data-action="close">Voltar</button><button class="primary" data-action="doJoin" data-id="'+b.id+'">Entrar na turma</button></div>');
   },
   doJoin:function(el){
     var b=find(el.dataset.id);
@@ -480,7 +495,7 @@ var A={
   av:function(el){var w=+el.dataset.w,h=+el.dataset.h,a=S.avail[w]=S.avail[w]||[],i=a.indexOf(h);if(i>=0)a.splice(i,1);else{a.push(h);a.sort(function(x,y){return x-y})}commit()},
   detail:function(el){
     var b=find(el.dataset.id),future=startDT(b)>new Date(),n=b.studentIds.length;
-    var names=b.studentIds.map(function(id){var u=user(id);return '<li class="row" style="justify-content:space-between"><span>'+esc(u?u.name:'?')+' <small style="color:var(--muted)">'+esc(u?u.level:'')+(b.credit&&b.credit[id]?', crédito':'')+'</small></span>'+(b.type==='group'&&future&&b.status==='confirmed'?'<button class="ghost small" data-action="kick" data-id="'+b.id+'" data-u="'+id+'">Tirar da turma</button>':'')+'</li>'}).join('');
+    var names=b.studentIds.map(function(id){var u=user(id);return '<li class="row" style="justify-content:space-between"><span>'+esc(u?u.name:'?')+' <small style="color:var(--muted)">'+esc(u?lv(u.level):'')+(b.credit&&b.credit[id]?', crédito':'')+'</small></span>'+(b.type==='group'&&future&&b.status==='confirmed'?'<button class="ghost small" data-action="kick" data-id="'+b.id+'" data-u="'+id+'">Tirar da turma</button>':'')+'</li>'}).join('');
     var lateC=(b.cancels||[]).filter(function(c){return c.late}).map(function(c){return first(c.uid)});
     openSheet('<h2 id="sheetTitle">'+kind(b)+'</h2><dl class="sum"><dt>Quando</dt><dd>'+fmtDay(b.date)+', '+fmtHour(b.hour)+' a '+fmtHour(b.hour+b.dur/60)+'</dd><dt>Situação</dt><dd>'+statusTag(b)+'</dd><dt>Valor</dt><dd>'+money(bookingPrice(b))+' por aluno'+(b.type==='group'?', total '+money(bookingPrice(b)*n):'')+(isPeak(b.date,b.hour)?' (pico)':'')+'</dd>'+(b.note?'<dt>Recado</dt><dd>'+esc(b.note)+'</dd>':'')+(lateC.length?'<dt>Cancelou tarde</dt><dd>'+esc(lateC.join(', '))+' (cobrar)</dd>':'')+'</dl><b>'+(b.type==='group'?'Alunos ('+n+' de '+b.max+')':'Aluno')+'</b><ul style="list-style:none;padding:0;margin:.4rem 0;display:grid;gap:.4rem">'+(names||'<li style="color:var(--muted)">Ninguém entrou ainda.</li>')+'</ul><div class="actions"><button class="ghost" data-action="close">Fechar</button>'+(b.status==='pending'?'<button class="ghost" data-action="decline" data-id="'+b.id+'">Recusar</button><button class="primary" data-action="confirm" data-id="'+b.id+'">Confirmar</button>':'')+(active(b)&&future?'<button class="danger" data-action="coachCancel" data-id="'+b.id+'">Cancelar aula</button>':'')+'</div>');
   },
@@ -489,7 +504,7 @@ var A={
   newGroup:function(){
     var d=ds(addDays(today(),Math.max(1,ui.week*7)));
     var hrs=[];for(var h=6;h<=21;h++)hrs.push(h);
-    openSheet('<h2 id="sheetTitle">Nova turma</h2><p class="lead">A turma aparece para os alunos, que entram sozinhos até lotar.</p><form class="stack" data-form="newGroup" novalidate><label>Dia<input type="date" name="date" value="'+d+'" min="'+ds(today())+'" required></label><div class="row" style="flex-wrap:nowrap"><label style="flex:1">Horário<select name="hour">'+hrs.map(function(h){return '<option value="'+h+'"'+(h===18?' selected':'')+'>'+h+':00</option>'}).join('')+'</select></label><label style="flex:1">Duração<select name="dur"><option value="60">60 min</option><option value="90">90 min</option></select></label></div><div class="row" style="flex-wrap:nowrap"><label style="flex:1">Nível<select name="level">'+LEVELS.map(function(l){return '<option>'+l+'</option>'}).join('')+'</select></label><label style="flex:1">Vagas<select name="max"><option>2</option><option>3</option><option selected>4</option></select></label></div><p class="err" id="ngErr"></p><div class="actions"><button class="ghost" type="button" data-action="close">Voltar</button><button class="primary" type="submit">Criar turma</button></div></form>');
+    openSheet('<h2 id="sheetTitle">Nova turma</h2><p class="lead">A turma aparece para os alunos, que entram sozinhos até lotar.</p><form class="stack" data-form="newGroup" novalidate><label>Dia<input type="date" name="date" value="'+d+'" min="'+ds(today())+'" required></label><div class="row" style="flex-wrap:nowrap"><label style="flex:1">Horário<select name="hour">'+hrs.map(function(h){return '<option value="'+h+'"'+(h===18?' selected':'')+'>'+h+':00</option>'}).join('')+'</select></label><label style="flex:1">Duração<select name="dur"><option value="60">60 min</option><option value="90">90 min</option></select></label></div><div class="row" style="flex-wrap:nowrap"><label style="flex:1">Nível<select name="level">'+LEVELS.map(function(l){return '<option value="'+l+'">'+lv(l)+'</option>'}).join('')+'</select></label><label style="flex:1">Vagas<select name="max"><option>2</option><option>3</option><option selected>4</option></select></label></div><p class="err" id="ngErr"></p><div class="actions"><button class="ghost" type="button" data-action="close">Voltar</button><button class="primary" type="submit">Criar turma</button></div></form>');
   }
 };
 var F={
@@ -524,7 +539,351 @@ document.addEventListener('click',function(e){
 document.addEventListener('submit',function(e){var f=e.target,fn=F[f.dataset.form];if(fn){e.preventDefault();fn(f)}});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.getElementById('scrim').classList.contains('open'))closeSheet()});
 render();
-})();
+})();}
+function APP_EN(){(function(){
+'use strict';
+var DRILLS_URL=DRILLS_LINKS[LANG];
+var KEY='aulaspadel-portal-demo:v1', SKEY=KEY+':sessao';
+var memStore={};
+function lsGet(k){try{return localStorage.getItem(k)}catch(e){return memStore[k]||null}}
+function lsSet(k,v){memStore[k]=v;try{localStorage.setItem(k,v)}catch(e){}}
+function lsDel(k){delete memStore[k];try{localStorage.removeItem(k)}catch(e){}}
+
+/* ---------- datas ---------- */
+function pad(n){return String(n).padStart(2,'0')}
+function ds(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}
+function parse(s){var a=s.split('-').map(Number);return new Date(a[0],a[1]-1,a[2])}
+function addDays(d,n){var x=new Date(d);x.setDate(x.getDate()+n);return x}
+function today(){var d=new Date();d.setHours(0,0,0,0);return d}
+var WD=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+var WDL=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+var MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function fmtDay(s){var d=parse(s);return WD[d.getDay()]+', '+d.getDate()+' '+MO[d.getMonth()]}
+function fmtHour(h){return Math.floor(h)+':'+pad(Math.round((h%1)*60))}
+function startDT(b){var d=parse(b.date);d.setHours(Math.floor(b.hour),Math.round((b.hour%1)*60),0,0);return d}
+function hoursUntil(b){return (startDT(b)-new Date())/36e5}
+
+/* ---------- preços (NZD por aluno, base 60 min) ---------- */
+var PRICES={1:[85,95],2:[40,45],3:[35,40],4:[30,35]};
+function isPeak(date,hour){var w=parse(date).getDay();return w===0||w===6||hour>=17}
+function price(size,date,hour,dur){var row=PRICES[Math.min(Math.max(size,1),4)];return row[isPeak(date,hour)?1:0]*dur/60}
+function groupSize(n){return Math.max(2,n)}
+function money(v){return '$'+(Math.round(v)===v?v:v.toFixed(2))}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function uid(p){return p+'-'+Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
+var LEVELS=['Principiante','Intermediário','Avançado'];
+function lv(x){return {'Principiante':'Beginner','Intermediário':'Intermediate','Avançado':'Advanced'}[x]||x}
+
+/* ---------- dados de demonstração ---------- */
+function seed(){
+  var D=function(n){return ds(addDays(today(),n))};
+  var users=[
+    {id:'u-coach',role:'coach',name:'Professor',email:'professor@demo.nz',pass:'demo'},
+    {id:'u-ana',role:'student',name:'Ana Souza',email:'ana@demo.nz',pass:'demo',level:'Principiante',credits:3},
+    {id:'u-bruno',role:'student',name:'Bruno Lima',email:'bruno@demo.nz',pass:'demo',level:'Intermediário',credits:0},
+    {id:'u-carla',role:'student',name:'Carla Mendes',email:'carla@demo.nz',pass:'demo',level:'Intermediário',credits:5},
+    {id:'u-diego',role:'student',name:'Diego Rocha',email:'diego@demo.nz',pass:'demo',level:'Avançado',credits:0},
+    {id:'u-eva',role:'student',name:'Eva Martins',email:'eva@demo.nz',pass:'demo',level:'Principiante',credits:1}
+  ];
+  var avail={0:[9,10],1:[7,8,9,16,17,18,19,20],2:[7,8,9,16,17,18,19,20],3:[7,8,9,16,17,18,19,20],4:[7,8,9,16,17,18,19,20],5:[7,8,9,16,17,18,19],6:[8,9,10,11]};
+  var bookings=[
+    {id:'b1',date:D(1),hour:18,dur:60,type:'group',level:'Intermediário',max:4,studentIds:['u-bruno','u-carla'],status:'confirmed',credit:{'u-carla':true}},
+    {id:'b2',date:D(2),hour:8,dur:60,type:'private',level:'Principiante',max:1,studentIds:['u-ana'],status:'confirmed',credit:{'u-ana':true}},
+    {id:'b3',date:D(2),hour:19,dur:90,type:'private',level:'Avançado',max:1,studentIds:['u-diego'],status:'pending',note:'Quero treinar víbora e bandeja.',credit:{}},
+    {id:'b4',date:D(3),hour:17,dur:60,type:'group',level:'Principiante',max:4,studentIds:['u-eva'],status:'confirmed',credit:{'u-eva':true}},
+    {id:'b5',date:D(5),hour:9,dur:60,type:'group',level:'Avançado',max:4,studentIds:[],status:'confirmed',credit:{}},
+    {id:'b6',date:D(-4),hour:9,dur:60,type:'private',level:'Principiante',max:1,studentIds:['u-ana'],status:'confirmed',credit:{'u-ana':true}},
+    {id:'b7',date:D(-2),hour:18,dur:60,type:'group',level:'Intermediário',max:4,studentIds:['u-bruno','u-carla','u-ana'],status:'confirmed',credit:{}}
+  ];
+  return {v:1,users:users,avail:avail,bookings:bookings,packReqs:[{id:'p1',uid:'u-bruno',size:5,at:Date.now()}]};
+}
+var S;
+try{S=JSON.parse(lsGet(KEY)||'null')}catch(e){S=null}
+if(!S||S.v!==1)S=seed();
+function save(){lsSet(KEY,JSON.stringify(S))}
+save();
+
+var me=null, ui={tab:lsGet(KEY+':tab')||null,day:0,dur:60,week:0,authMode:'login'};lsDel(KEY+':tab');document.documentElement.lang=LANG==='en'?'en':'pt-BR';
+function user(id){return S.users.find(function(u){return u.id===id})}
+function first(id){var u=user(id);return u?u.name.split(' ')[0]:'?'}
+var sid=lsGet(SKEY); if(sid){me=user(sid)||null}
+
+/* ---------- regras de agenda ---------- */
+function active(b){return b.status==='confirmed'||b.status==='pending'}
+function overlaps(date,h,dur,ignore){return S.bookings.some(function(b){return active(b)&&b.id!==ignore&&b.date===date&&h<b.hour+b.dur/60&&b.hour<h+dur/60})}
+function freeSlots(date,dur){
+  var hrs=S.avail[parse(date).getDay()]||[], now=new Date();
+  return hrs.filter(function(h){
+    for(var x=h;x<h+dur/60;x++){if(hrs.indexOf(Math.floor(x))<0)return false}
+    var st=parse(date);st.setHours(h,0,0,0);if(st<=now)return false;
+    return !overlaps(date,h,dur);
+  });
+}
+function openGroups(date){var now=new Date();return S.bookings.filter(function(b){return b.type==='group'&&b.status==='confirmed'&&b.date===date&&startDT(b)>now&&(b.studentIds.length<b.max||b.studentIds.indexOf(me.id)>=0)}).sort(function(a,b){return a.hour-b.hour})}
+function bookingPrice(b,size){return b.type==='private'?price(1,b.date,b.hour,b.dur):price(groupSize(size==null?b.studentIds.length:size),b.date,b.hour,b.dur)}
+function useCredit(b,u){if(u.credits>0){u.credits--;b.credit=b.credit||{};b.credit[u.id]=true;return true}return false}
+function refund(b,id){if(b.credit&&b.credit[id]){var u=user(id);if(u)u.credits=(u.credits||0)+1;delete b.credit[id];return true}return false}
+function pendingCount(){return S.bookings.filter(function(b){return b.status==='pending'&&startDT(b)>new Date()}).length+S.packReqs.length}
+
+/* ---------- UI helpers ---------- */
+var toastT;
+function toast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove('show')},2800)}
+var lastFocus=null;
+function openSheet(html){lastFocus=document.activeElement;var s=document.getElementById('sheet');s.innerHTML=html;var sc=document.getElementById('scrim');sc.classList.add('open');sc.setAttribute('aria-hidden','false');var f=s.querySelector('input,textarea,select,.primary,button');if(f)f.focus()}
+function closeSheet(){var sc=document.getElementById('scrim');sc.classList.remove('open');sc.setAttribute('aria-hidden','true');document.getElementById('sheet').innerHTML='';if(lastFocus&&document.body.contains(lastFocus))lastFocus.focus()}
+function statusTag(b){
+  if(b.status==='pending')return '<span class="tag pending">Awaiting confirmation</span>';
+  if(b.status==='confirmed')return '<span class="tag ok">Confirmed</span>';
+  if(b.status==='declined')return '<span class="tag off">Declined</span>';
+  return '<span class="tag off">Cancelled</span>';
+}
+function kind(b){return b.type==='private'?'Private lesson':lv(b.level)+' group'}
+
+/* ---------- login ---------- */
+function loginHTML(){
+  var reg=ui.authMode==='register';
+  return '<div class="login"><div class="loginbar">'+'<div class="langsw" role="group" aria-label="Idioma / Language"><button data-action="lang" data-l="pt" aria-pressed="'+(LANG==='pt')+'" lang="pt">PT</button><button data-action="lang" data-l="en" aria-pressed="'+(LANG==='en')+'" lang="en">EN</button></div>'+'</div><div class="hero"><img src="'+LOGO+'" alt=""><div><h1>Padel Lessons</h1><p class="lead">Book lessons with the coach, join open groups and keep track of your lesson pack.</p></div></div>'+
+  '<div class="court" role="group" aria-label="Sign in with a demo account">'+
+  '<button class="side l" data-action="demo" data-who="professor@demo.nz"><span><b>Coach</b><small>Schedule, requests, students and hours</small></span></button>'+
+  '<div class="net" aria-hidden="true"></div>'+
+  '<button class="side r" data-action="demo" data-who="ana@demo.nz"><span><b>Student</b><small>Book a lesson, join a group, see your pack</small></span></button></div>'+
+  (reg?
+  '<h2>Create a student account</h2><form class="stack" data-form="register" novalidate>'+
+  '<label>Name<input name="name" autocomplete="name" required></label>'+
+  '<label>Email<input name="email" type="email" autocomplete="email" required></label>'+
+  '<label>Password<input name="pass" type="password" autocomplete="new-password" required minlength="4"></label>'+
+  '<label>Your level<select name="level">'+LEVELS.map(function(l){return '<option value="'+l+'">'+lv(l)+'</option>'}).join('')+'</select></label>'+
+  '<p class="err" id="authErr"></p><div class="row"><button class="primary" type="submit">Create account</button><button class="link" type="button" data-action="authMode" data-m="login">I already have an account</button></div></form>'
+  :
+  '<h2>Sign in</h2><form class="stack" data-form="login" novalidate>'+
+  '<label>Email<input name="email" type="email" autocomplete="username" required></label>'+
+  '<label>Password<input name="pass" type="password" autocomplete="current-password" required></label>'+
+  '<p class="err" id="authErr"></p><div class="row"><button class="primary" type="submit">Sign in</button><button class="link" type="button" data-action="authMode" data-m="register">Create a student account</button></div></form>')+
+  '<p class="demo-note">This is a demo. Data stays in this browser only and passwords are not protected, so do not use a real password. Tap one side of the court to sign in as the coach or as a student (password <b>demo</b>). Other test students: bruno@demo.nz, carla@demo.nz, diego@demo.nz, eva@demo.nz.</p>'+
+  '<div class="row"><button class="ghost small" data-action="askReset">Reset demo data</button></div></div>';
+}
+function login(u){me=u;lsSet(SKEY,u.id);ui.tab=null;ui.day=0;ui.week=0;render();window.scrollTo(0,0)}
+
+/* ---------- views do aluno ---------- */
+function bookView(){
+  var t=today(), days=[];for(var i=0;i<14;i++)days.push(ds(addDays(t,i)));
+  var day=days[ui.day];
+  var chips=days.map(function(d,i){
+    var n=freeSlots(d,ui.dur).length+openGroups(d).filter(function(b){return b.studentIds.indexOf(me.id)<0}).length, dt=parse(d);
+    return '<button class="daychip" aria-pressed="'+(i===ui.day)+'" data-action="day" data-i="'+i+'"><span class="wd">'+(i===0?'Today':i===1?'Tomorrow':WD[dt.getDay()])+'</span><span class="dn cond">'+dt.getDate()+'</span><span class="cnt">'+(n?n+(n>1?' options':' option'):'full')+'</span></button>';
+  }).join('');
+  var slots=freeSlots(day,ui.dur), groups=openGroups(day);
+  var h='<h2>Book a lesson</h2><p class="lead">Private lessons need the coach to confirm. You can join an open group straight away.</p>'+
+  '<div class="daystrip" role="group" aria-label="Day">'+chips+'</div>'+
+  '<div class="seg" role="group" aria-label="Private lesson length"><button aria-pressed="'+(ui.dur===60)+'" data-action="dur" data-d="60">60 min</button><button aria-pressed="'+(ui.dur===90)+'" data-action="dur" data-d="90">90 min</button></div>'+
+  '<h3>Private lesson on '+fmtDay(day)+'</h3>';
+  h+=slots.length?'<div class="slots">'+slots.map(function(hr){return '<button class="slot" data-action="reqPrivate" data-date="'+day+'" data-h="'+hr+'"><span class="cond t">'+fmtHour(hr)+'</span><span class="p">'+money(price(1,day,hr,ui.dur))+' for '+ui.dur+' min</span>'+(isPeak(day,hr)?'<span class="tag peak">Peak</span>':'')+'</button>'}).join('')+'</div>'
+    :'<p class="empty">No free '+ui.dur+'-min slots on this day. Pick another day'+(ui.dur===90?' or 60 min':'')+'.</p>';
+  h+='<h3>Open groups</h3>';
+  h+=groups.length?'<div class="list">'+groups.map(function(b){
+    var inIt=b.studentIds.indexOf(me.id)>=0, n=b.studentIds.length, left=b.max-n;
+    return '<div class="item"><div class="when">'+fmtHour(b.hour)+'<small>'+b.dur+' min</small></div><div class="what"><b>'+kind(b)+'</b>'+(b.level!==me.level?' <span class="tag">Different level</span>':'')+'<div class="sub">'+(inIt?'You are in this group, '+n+' of '+b.max+' students':left+(left>1?' spots left':' spot left')+', '+n+' of '+b.max+' students')+'. '+money(bookingPrice(b,inIt?n:n+1))+' per student'+(isPeak(b.date,b.hour)?', peak time':'')+'</div></div><div class="acts">'+(inIt?'<button class="ghost small" data-action="tab" data-tab="mine">See in My lessons</button>':'<button class="primary small" data-action="joinGroup" data-id="'+b.id+'">Join group</button>')+'</div></div>';
+  }).join('')+'</div>':'<p class="empty">No groups with spots on this day.</p>';
+  return h;
+}
+function myBookings(){return S.bookings.filter(function(b){return b.studentIds.indexOf(me.id)>=0||(b.cancels||[]).some(function(c){return c.uid===me.id})})}
+function mineView(){
+  var now=new Date(), all=myBookings();
+  var up=all.filter(function(b){return active(b)&&b.studentIds.indexOf(me.id)>=0&&startDT(b)>now}).sort(function(a,b){return startDT(a)-startDT(b)});
+  var past=all.filter(function(b){return up.indexOf(b)<0}).sort(function(a,b){return startDT(b)-startDT(a)}).slice(0,12);
+  var h='<h2>My lessons</h2><p class="lead">Cancelling 24 hours or more ahead is free and the credit comes back. With less than 24 hours, the full lesson is charged.</p><h3>Upcoming</h3>';
+  h+=up.length?'<div class="list">'+up.map(function(b){
+    var others=b.studentIds.filter(function(x){return x!==me.id}).map(first);
+    return '<div class="item"><div class="when">'+fmtHour(b.hour)+'<small>'+fmtDay(b.date)+'</small></div><div class="what"><b>'+kind(b)+'</b> '+statusTag(b)+'<div class="sub">'+b.dur+' min, '+money(bookingPrice(b))+(b.credit&&b.credit[me.id]?', paid with credit':', goes on the invoice')+(others.length?'. With '+esc(others.join(', ')):'')+'</div></div><div class="acts"><button class="ghost small" data-action="askCancel" data-id="'+b.id+'">'+(b.status==='pending'?'Withdraw request':'Cancel')+'</button></div></div>';
+  }).join('')+'</div>':'<p class="empty">You have no lessons booked. <button class="link" data-action="tab" data-tab="book">Book a lesson</button></p>';
+  h+='<h3>History</h3>';
+  h+=past.length?'<div class="list">'+past.map(function(b){
+    var c=(b.cancels||[]).find(function(x){return x.uid===me.id});
+    var label=c?(c.late?'You cancelled with less than 24h notice (charged)':'You cancelled'):b.status==='cancelled'?(b.late?'Cancelled with less than 24h notice (charged)':'Cancelled'):b.status==='declined'?'The coach declined this time':'Done';
+    return '<div class="item muted"><div class="when">'+fmtHour(b.hour)+'<small>'+fmtDay(b.date)+'</small></div><div class="what"><b>'+kind(b)+'</b><div class="sub">'+label+'</div></div><div></div></div>';
+  }).join('')+'</div>':'<p class="empty">Nothing here yet.</p>';
+  return h;
+}
+function packView(){
+  var req=S.packReqs.filter(function(p){return p.uid===me.id});
+  return '<h2>Lesson pack</h2><div class="panel"><div class="big">'+(me.credits||0)+'</div><p>'+((me.credits||0)===1?'credit available':'credits available')+'. Each lesson uses 1 credit, private or group. Without credit, the lesson goes on the monthly invoice.</p></div>'+
+  '<h3>Request a pack</h3><p class="lead">The coach confirms the pack and the credits show up here.</p>'+
+  (req.length?'<p class="empty">Request for '+req.map(function(p){return p.size+' lessons'}).join(' and ')+' waiting for the coach.</p>':
+  '<div class="row"><button class="primary" data-action="reqPack" data-n="5">Request 5 lessons</button><button class="ghost" data-action="reqPack" data-n="10">Request 10 lessons</button></div>')+
+  '<h3>Your level</h3><div class="row"><select id="lvl" aria-label="Your level" style="max-width:260px">'+LEVELS.map(function(l){return '<option value="'+l+'"'+(l===me.level?' selected':'')+'>'+lv(l)+'</option>'}).join('')+'</select><button class="ghost small" data-action="saveLevel">Save level</button></div>';
+}
+
+/* ---------- views do professor ---------- */
+function agendaView(){
+  var now=new Date();
+  var pend=S.bookings.filter(function(b){return b.status==='pending'&&startDT(b)>now}).sort(function(a,b){return startDT(a)-startDT(b)});
+  var h='<h2>Schedule</h2><a class="drillsbtn primary" href="'+DRILLS_URL+'" target="_blank" rel="noopener">Open drills and class mode<span class="sr"> (opens in a new tab)</span></a>';
+  if(pend.length||S.packReqs.length){
+    h+='<h3>Requests to answer</h3><div class="list">'+pend.map(function(b){
+      var u=user(b.studentIds[0]);
+      return '<div class="item"><div class="when">'+fmtHour(b.hour)+'<small>'+fmtDay(b.date)+'</small></div><div class="what"><b>'+esc(u?u.name:'?')+'</b> requested a '+b.dur+'-min private lesson<div class="sub">'+esc(u?lv(u.level):'')+', '+money(bookingPrice(b))+(b.credit&&u&&b.credit[u.id]?', paid with credit':'')+(b.note?'. Note: “'+esc(b.note)+'”':'')+'</div></div><div class="acts"><button class="primary small" data-action="confirm" data-id="'+b.id+'">Confirm</button><button class="ghost small" data-action="decline" data-id="'+b.id+'">Decline</button></div></div>';
+    }).join('')+S.packReqs.map(function(p){
+      var u=user(p.uid);
+      return '<div class="item"><div class="when">Pack<small>'+p.size+' lessons</small></div><div class="what"><b>'+esc(u?u.name:'?')+'</b> requested a pack of '+p.size+' lessons<div class="sub">Currently has '+(u?u.credits:0)+((u&&u.credits===1)?' credit':' credits')+'</div></div><div class="acts"><button class="primary small" data-action="approvePack" data-id="'+p.id+'">Approve</button><button class="ghost small" data-action="rejectPack" data-id="'+p.id+'">Decline</button></div></div>';
+    }).join('')+'</div>';
+  }
+  var start=addDays(today(),ui.week*7), end=addDays(start,6), tds=ds(today());
+  h+='<div class="weekbar"><span class="range">'+start.getDate()+' '+MO[start.getMonth()]+' to '+end.getDate()+' '+MO[end.getMonth()]+'</span><button class="ghost small" data-action="week" data-d="-1">Previous week</button><button class="ghost small" data-action="week" data-d="0"'+(ui.week===0?' disabled':'')+'>Today</button><button class="ghost small" data-action="week" data-d="1">Next week</button><button class="primary small" data-action="newGroup">New group</button></div><div class="week">';
+  for(var i=0;i<7;i++){
+    var d=ds(addDays(start,i)), dt=parse(d);
+    var bs=S.bookings.filter(function(b){return b.date===d&&b.status!=='declined'}).sort(function(a,b){return a.hour-b.hour});
+    h+='<div class="dcol'+(d===tds?' today':'')+'"><h4><span class="cond">'+dt.getDate()+'</span>'+WD[dt.getDay()]+'</h4>'+(bs.length?bs.map(function(b){
+      var who=b.type==='private'?first(b.studentIds[0]):(b.studentIds.length?b.studentIds.map(first).join(', '):'No students yet');
+      return '<button class="bk '+b.type+' '+b.status+'" data-action="detail" data-id="'+b.id+'"><span class="t">'+fmtHour(b.hour)+'</span> '+(b.type==='private'?'Private':'Group '+b.studentIds.length+'/'+b.max)+'<br>'+esc(who)+'</button>';
+    }).join(''):'<span class="none">Free</span>')+'</div>';
+  }
+  h+='</div><div class="legend"><span><i></i>Private</span><span><i class="g"></i>Group</span><span><i class="p"></i>Awaiting confirmation</span></div>';
+  return h;
+}
+function studentsView(){
+  var st=S.users.filter(function(u){return u.role==='student'}).sort(function(a,b){return a.name.localeCompare(b.name)});
+  var now=new Date();
+  return '<h2>Students</h2><p class="lead">Anyone who creates an account on the portal shows up here. Adjust credits when a student pays for a pack outside the portal.</p><div class="tablewrap"><table><thead><tr><th>Name</th><th>Level</th><th class="num">Upcoming</th><th class="num">Credits</th><th>Adjust</th></tr></thead><tbody>'+
+  st.map(function(u){
+    var n=S.bookings.filter(function(b){return active(b)&&b.studentIds.indexOf(u.id)>=0&&startDT(b)>now}).length;
+    return '<tr><td><b>'+esc(u.name)+'</b><br><small style="color:var(--muted)">'+esc(u.email)+'</small></td><td>'+esc(lv(u.level))+'</td><td class="num">'+n+'</td><td class="num">'+(u.credits||0)+'</td><td><div class="row" style="gap:.3rem;flex-wrap:nowrap"><button class="ghost small" data-action="cred" data-id="'+u.id+'" data-n="-1" aria-label="Remove 1 credit from '+esc(u.name)+'">−1</button><button class="ghost small" data-action="cred" data-id="'+u.id+'" data-n="5" aria-label="Give 5 credits to '+esc(u.name)+'">+5</button><button class="ghost small" data-action="cred" data-id="'+u.id+'" data-n="10" aria-label="Give 10 credits to '+esc(u.name)+'">+10</button></div></td></tr>';
+  }).join('')+'</tbody></table></div>';
+}
+function availView(){
+  var order=[1,2,3,4,5,6,0], hrs=[];for(var h=6;h<=21;h++)hrs.push(h);
+  return '<h2>Available hours</h2><p class="lead">Mark the hours when you teach. Students only see free slots within these blocks. A 90-min lesson needs two hours in a row marked.</p><div class="tablewrap"><table class="avgrid"><thead><tr><th></th>'+order.map(function(w){return '<th>'+WD[w]+'</th>'}).join('')+'</tr></thead><tbody>'+
+  hrs.map(function(h){return '<tr><th>'+h+':00</th>'+order.map(function(w){var on=(S.avail[w]||[]).indexOf(h)>=0;return '<td><button class="av" aria-pressed="'+on+'" aria-label="'+WDL[w]+' at '+h+':00" data-action="av" data-w="'+w+'" data-h="'+h+'">'+(on?'Yes':'·')+'</button></td>'}).join('')+'</tr>'}).join('')+
+  '</tbody></table></div>';
+}
+function pricesView(){
+  return '<h2>Prices</h2><p class="lead">Price per student in NZD for 60 min. Other lengths are pro rata. Peak is Monday to Friday from 5 pm and all weekend. A group with 1 student pays the price for 2.</p><div class="tablewrap"><table><thead><tr><th>Format</th><th class="num">Off-peak</th><th class="num">Peak</th></tr></thead><tbody>'+
+  [['Private',1],['Group of 2',2],['Group of 3',3],['Group of 4 or more',4]].map(function(r){return '<tr><td>'+r[0]+'</td><td class="num">'+money(PRICES[r[1]][0])+'</td><td class="num">'+money(PRICES[r[1]][1])+'</td></tr>'}).join('')+
+  '</tbody></table></div><div class="panel"><b>Cancellation</b><p>Cancelling 24 hours or more ahead is free and the credit goes back to the student. With less than 24 hours, the full lesson is charged. When the coach cancels, the credit always comes back.</p></div>';
+}
+
+/* ---------- render ---------- */
+var VIEWS={book:bookView,mine:mineView,pack:packView,agenda:agendaView,students:studentsView,avail:availView,prices:pricesView};
+function render(){
+  var root=document.getElementById('root');
+  if(!me){root.innerHTML=loginHTML();document.title='Padel Lessons: sign in (demo)';return}
+  var coach=me.role==='coach';
+  var tabs=coach?[['agenda','Schedule'],['students','Students'],['avail','Hours'],['prices','Prices']]:[['book','Book a lesson'],['mine','My lessons'],['pack','Lesson pack']];
+  if(!tabs.some(function(t){return t[0]===ui.tab}))ui.tab=tabs[0][0];
+  var pend=coach?pendingCount():0;
+  var upcoming=!coach?myBookings().filter(function(b){return active(b)&&b.studentIds.indexOf(me.id)>=0&&startDT(b)>new Date()}).length:0;
+  root.innerHTML='<header class="top"><img class="mark" src="'+LOGO+'" alt=""><span class="name">Padel Lessons</span><span class="who">'+esc(coach&&me.name==='Professor'?'Coach':me.name)+'<small>'+(coach?'Coach account':esc(lv(me.level))+', '+(me.credits||0)+((me.credits||0)===1?' credit':' credits'))+'</small></span>'+'<div class="langsw" role="group" aria-label="Idioma / Language"><button data-action="lang" data-l="pt" aria-pressed="'+(LANG==='pt')+'" lang="pt">PT</button><button data-action="lang" data-l="en" aria-pressed="'+(LANG==='en')+'" lang="en">EN</button></div>'+'<button data-action="logout">Sign out</button></header>'+
+  '<div class="banner">Demo: data stays in this browser only.</div>'+
+  '<nav class="tabs" role="tablist">'+tabs.map(function(t){var b=t[0]==='agenda'&&pend?' <span class="badge" aria-label="'+pend+' pending">'+pend+'</span>':t[0]==='mine'&&upcoming?' <span class="badge">'+upcoming+'</span>':'';return '<button role="tab" aria-selected="'+(ui.tab===t[0])+'" data-action="tab" data-tab="'+t[0]+'">'+t[1]+b+'</button>'}).join('')+(coach?'<a class="tablink" href="'+DRILLS_URL+'" target="_blank" rel="noopener">Drills and class mode<span class="sr"> (opens in a new tab)</span></a>':'')+'</nav>'+
+  '<main class="view" role="tabpanel">'+VIEWS[ui.tab]()+'</main>';
+  document.title='Padel Lessons: '+tabs.find(function(t){return t[0]===ui.tab})[1]+' (demo)';
+}
+function commit(msg){save();if(me)me=user(me.id);render();if(msg)toast(msg)}
+function find(id){return S.bookings.find(function(b){return b.id===id})}
+
+/* ---------- ações ---------- */
+var A={
+  demo:function(el){var u=S.users.find(function(x){return x.email===el.dataset.who});if(u)login(u)},
+  authMode:function(el){ui.authMode=el.dataset.m;render();var i=document.querySelector('form input');if(i)i.focus()},
+  logout:function(){me=null;lsDel(SKEY);ui.authMode='login';render()},
+  askReset:function(){openSheet('<h2 id="sheetTitle">Reset demo data?</h2><p>Deletes bookings, new accounts and hour changes in this browser and goes back to the sample data.</p><div class="actions"><button class="ghost" data-action="close">Back</button><button class="danger" data-action="reset">Reset</button></div>')},
+  reset:function(){S=seed();save();me=null;lsDel(SKEY);closeSheet();render();toast('Demo data reset.')},
+  close:closeSheet,
+  lang:function(el){var l=el.dataset.l;if(l===LANG)return;lsSet(LANGKEY,l);lsSet(KEY+':tab',ui.tab||'');location.reload()},
+  tab:function(el){ui.tab=el.dataset.tab;render();window.scrollTo(0,0)},
+  day:function(el){ui.day=+el.dataset.i;render()},
+  dur:function(el){ui.dur=+el.dataset.d;render()},
+  week:function(el){var d=+el.dataset.d;ui.week=d===0?0:ui.week+d;render()},
+  reqPrivate:function(el){
+    var date=el.dataset.date,h=+el.dataset.h,dur=ui.dur,cr=me.credits||0;
+    openSheet('<h2 id="sheetTitle">Request a private lesson</h2><dl class="sum"><dt>When</dt><dd>'+fmtDay(date)+', '+fmtHour(h)+' to '+fmtHour(h+dur/60)+'</dd><dt>Price</dt><dd>'+money(price(1,date,h,dur))+(isPeak(date,h)?' (peak time)':'')+'</dd><dt>Payment</dt><dd>'+(cr?'Uses 1 pack credit (you have '+cr+')':'Goes on the monthly invoice')+'</dd></dl><label>Note for the coach (optional)<textarea id="note" rows="2" maxlength="200" placeholder="E.g. I want to work on wall exits"></textarea></label><div class="actions"><button class="ghost" data-action="close">Back</button><button class="primary" data-action="sendPrivate" data-date="'+date+'" data-h="'+h+'" data-dur="'+dur+'">Send request</button></div>');
+  },
+  sendPrivate:function(el){
+    var date=el.dataset.date,h=+el.dataset.h,dur=+el.dataset.dur;
+    if(overlaps(date,h,dur)){closeSheet();commit('That slot was just taken. Please pick another.');return}
+    var b={id:uid('b'),date:date,hour:h,dur:dur,type:'private',level:me.level,max:1,studentIds:[me.id],status:'pending',note:(document.getElementById('note').value||'').trim(),credit:{}};
+    useCredit(b,user(me.id));S.bookings.push(b);closeSheet();commit('Request sent. The coach will confirm.');
+  },
+  joinGroup:function(el){
+    var b=find(el.dataset.id),n=b.studentIds.length,cr=me.credits||0;
+    openSheet('<h2 id="sheetTitle">Join group</h2><dl class="sum"><dt>When</dt><dd>'+fmtDay(b.date)+', '+fmtHour(b.hour)+' to '+fmtHour(b.hour+b.dur/60)+'</dd><dt>Group</dt><dd>'+lv(b.level)+', '+(n+1)+' of '+b.max+' students including you</dd><dt>Price</dt><dd>'+money(bookingPrice(b,n+1))+' per student</dd><dt>Payment</dt><dd>'+(cr?'Uses 1 pack credit (you have '+cr+')':'Goes on the monthly invoice')+'</dd></dl>'+(b.level!==me.level?'<p class="warnbox">This group is '+lv(b.level).toLowerCase()+' level and yours is '+lv(me.level).toLowerCase()+'. The coach may suggest another group.</p>':'')+'<div class="actions"><button class="ghost" data-action="close">Back</button><button class="primary" data-action="doJoin" data-id="'+b.id+'">Join group</button></div>');
+  },
+  doJoin:function(el){
+    var b=find(el.dataset.id);
+    if(!b||b.status!=='confirmed'||b.studentIds.length>=b.max){closeSheet();commit('The group is full. Please pick another.');return}
+    if(b.studentIds.indexOf(me.id)<0){b.studentIds.push(me.id);useCredit(b,user(me.id))}
+    closeSheet();commit('You joined the group.');
+  },
+  askCancel:function(el){
+    var b=find(el.dataset.id),hu=hoursUntil(b),late=hu<24&&b.status==='confirmed',hasCr=b.credit&&b.credit[me.id];
+    var msg=b.status==='pending'?'The request is not confirmed yet, so you can withdraw it at no cost'+(hasCr?' and the credit comes back':'')+'.':
+      late?'Less than 24 hours to go. Under the rule, the full lesson is charged'+(hasCr?' and the credit used does not come back':'')+'.':
+      'More than 24 hours to go, so cancelling is free'+(hasCr?' and the credit goes back to your pack':'')+'.';
+    openSheet('<h2 id="sheetTitle">'+(b.status==='pending'?'Withdraw request':'Cancel lesson')+'</h2><dl class="sum"><dt>Lesson</dt><dd>'+kind(b)+'</dd><dt>When</dt><dd>'+fmtDay(b.date)+', '+fmtHour(b.hour)+'</dd></dl><p class="'+(late?'warnbox':'')+'">'+msg+'</p><div class="actions"><button class="ghost" data-action="close">Keep lesson</button><button class="danger" data-action="doCancel" data-id="'+b.id+'">'+(b.status==='pending'?'Withdraw request':late?'Cancel anyway':'Cancel lesson')+'</button></div>');
+  },
+  doCancel:function(el){
+    var b=find(el.dataset.id),late=hoursUntil(b)<24&&b.status==='confirmed';
+    if(b.type==='private'){if(!late)refund(b,me.id);b.late=late;b.status='cancelled'}
+    else{b.studentIds=b.studentIds.filter(function(x){return x!==me.id});b.cancels=(b.cancels||[]).concat([{uid:me.id,late:late,at:Date.now()}]);if(!late)refund(b,me.id)}
+    closeSheet();commit(late?'Lesson cancelled. It will be charged.':'Lesson cancelled.');
+  },
+  reqPack:function(el){S.packReqs.push({id:uid('p'),uid:me.id,size:+el.dataset.n,at:Date.now()});commit('Pack request sent to the coach.')},
+  saveLevel:function(){var u=user(me.id);u.level=document.getElementById('lvl').value;commit('Level saved.')},
+  /* professor */
+  confirm:function(el){var b=find(el.dataset.id);if(overlaps(b.date,b.hour,b.dur,b.id)&&S.bookings.some(function(x){return x.id!==b.id&&x.status==='confirmed'&&x.date===b.date&&b.hour<x.hour+x.dur/60&&x.hour<b.hour+b.dur/60})){toast('Clashes with another confirmed lesson.');return}b.status='confirmed';closeSheet();commit('Lesson confirmed.')},
+  decline:function(el){var b=find(el.dataset.id);b.status='declined';refund(b,b.studentIds[0]);closeSheet();commit('Request declined. The credit went back to the student.')},
+  approvePack:function(el){var p=S.packReqs.find(function(x){return x.id===el.dataset.id});var u=user(p.uid);if(u)u.credits=(u.credits||0)+p.size;S.packReqs=S.packReqs.filter(function(x){return x!==p});commit('Pack approved: '+p.size+' credits for '+first(p.uid)+'.')},
+  rejectPack:function(el){S.packReqs=S.packReqs.filter(function(x){return x.id!==el.dataset.id});commit('Pack request declined.')},
+  cred:function(el){var u=user(el.dataset.id);u.credits=Math.max(0,(u.credits||0)+(+el.dataset.n));commit()},
+  av:function(el){var w=+el.dataset.w,h=+el.dataset.h,a=S.avail[w]=S.avail[w]||[],i=a.indexOf(h);if(i>=0)a.splice(i,1);else{a.push(h);a.sort(function(x,y){return x-y})}commit()},
+  detail:function(el){
+    var b=find(el.dataset.id),future=startDT(b)>new Date(),n=b.studentIds.length;
+    var names=b.studentIds.map(function(id){var u=user(id);return '<li class="row" style="justify-content:space-between"><span>'+esc(u?u.name:'?')+' <small style="color:var(--muted)">'+esc(u?lv(u.level):'')+(b.credit&&b.credit[id]?', credit':'')+'</small></span>'+(b.type==='group'&&future&&b.status==='confirmed'?'<button class="ghost small" data-action="kick" data-id="'+b.id+'" data-u="'+id+'">Remove from group</button>':'')+'</li>'}).join('');
+    var lateC=(b.cancels||[]).filter(function(c){return c.late}).map(function(c){return first(c.uid)});
+    openSheet('<h2 id="sheetTitle">'+kind(b)+'</h2><dl class="sum"><dt>When</dt><dd>'+fmtDay(b.date)+', '+fmtHour(b.hour)+' to '+fmtHour(b.hour+b.dur/60)+'</dd><dt>Status</dt><dd>'+statusTag(b)+'</dd><dt>Price</dt><dd>'+money(bookingPrice(b))+' per student'+(b.type==='group'?', total '+money(bookingPrice(b)*n):'')+(isPeak(b.date,b.hour)?' (peak)':'')+'</dd>'+(b.note?'<dt>Note</dt><dd>'+esc(b.note)+'</dd>':'')+(lateC.length?'<dt>Cancelled late</dt><dd>'+esc(lateC.join(', '))+' (charge)</dd>':'')+'</dl><b>'+(b.type==='group'?'Students ('+n+' of '+b.max+')':'Student')+'</b><ul style="list-style:none;padding:0;margin:.4rem 0;display:grid;gap:.4rem">'+(names||'<li style="color:var(--muted)">No one has joined yet.</li>')+'</ul><div class="actions"><button class="ghost" data-action="close">Close</button>'+(b.status==='pending'?'<button class="ghost" data-action="decline" data-id="'+b.id+'">Decline</button><button class="primary" data-action="confirm" data-id="'+b.id+'">Confirm</button>':'')+(active(b)&&future?'<button class="danger" data-action="coachCancel" data-id="'+b.id+'">Cancel lesson</button>':'')+'</div>');
+  },
+  kick:function(el){var b=find(el.dataset.id);b.studentIds=b.studentIds.filter(function(x){return x!==el.dataset.u});refund(b,el.dataset.u);closeSheet();commit('Student removed from the group. The credit came back.')},
+  coachCancel:function(el){var b=find(el.dataset.id);b.studentIds.forEach(function(id){refund(b,id)});b.status='cancelled';b.late=false;closeSheet();commit('Lesson cancelled. The credits went back to the students.')},
+  newGroup:function(){
+    var d=ds(addDays(today(),Math.max(1,ui.week*7)));
+    var hrs=[];for(var h=6;h<=21;h++)hrs.push(h);
+    openSheet('<h2 id="sheetTitle">New group</h2><p class="lead">The group shows up for students, who join on their own until it is full.</p><form class="stack" data-form="newGroup" novalidate><label>Day<input type="date" name="date" value="'+d+'" min="'+ds(today())+'" required></label><div class="row" style="flex-wrap:nowrap"><label style="flex:1">Time<select name="hour">'+hrs.map(function(h){return '<option value="'+h+'"'+(h===18?' selected':'')+'>'+h+':00</option>'}).join('')+'</select></label><label style="flex:1">Length<select name="dur"><option value="60">60 min</option><option value="90">90 min</option></select></label></div><div class="row" style="flex-wrap:nowrap"><label style="flex:1">Level<select name="level">'+LEVELS.map(function(l){return '<option value="'+l+'">'+lv(l)+'</option>'}).join('')+'</select></label><label style="flex:1">Spots<select name="max"><option>2</option><option>3</option><option selected>4</option></select></label></div><p class="err" id="ngErr"></p><div class="actions"><button class="ghost" type="button" data-action="close">Back</button><button class="primary" type="submit">Create group</button></div></form>');
+  }
+};
+var F={
+  login:function(f){
+    var e=f.email.value.trim().toLowerCase(),p=f.pass.value,err=document.getElementById('authErr');
+    var u=S.users.find(function(x){return x.email.toLowerCase()===e});
+    if(!e||!p){err.textContent='Enter your email and password.';return}
+    if(!u||u.pass!==p){err.textContent='Email or password is incorrect. In the demo, the test account password is demo.';return}
+    login(u);
+  },
+  register:function(f){
+    var n=f.name.value.trim(),e=f.email.value.trim().toLowerCase(),p=f.pass.value,err=document.getElementById('authErr');
+    if(!n||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)){err.textContent='Enter a name and a valid email.';return}
+    if(p.length<4){err.textContent='The password needs at least 4 characters.';return}
+    if(S.users.some(function(x){return x.email.toLowerCase()===e})){err.textContent='An account with this email already exists. Use Sign in.';return}
+    var u={id:uid('u'),role:'student',name:n,email:e,pass:p,level:f.level.value,credits:0};S.users.push(u);save();login(u);toast('Account created. Welcome!');
+  },
+  newGroup:function(f){
+    var date=f.date.value,h=+f.hour.value,dur=+f.dur.value,err=document.getElementById('ngErr');
+    if(!date){err.textContent='Pick a day.';return}
+    var st=parse(date);st.setHours(h);if(st<=new Date()){err.textContent='Pick a time in the future.';return}
+    if(overlaps(date,h,dur)){err.textContent='There is already a lesson at that time.';return}
+    S.bookings.push({id:uid('b'),date:date,hour:h,dur:dur,type:'group',level:f.level.value,max:+f.max.value,studentIds:[],status:'confirmed',credit:{}});
+    closeSheet();commit('Group created for '+fmtDay(date)+' at '+h+':00.');
+  }
+};
+document.addEventListener('click',function(e){
+  var sc=document.getElementById('scrim');if(e.target===sc){closeSheet();return}
+  var el=e.target.closest('[data-action]');if(!el)return;
+  var fn=A[el.dataset.action];if(fn){e.preventDefault();fn(el)}
+});
+document.addEventListener('submit',function(e){var f=e.target,fn=F[f.dataset.form];if(fn){e.preventDefault();fn(f)}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.getElementById('scrim').classList.contains('open'))closeSheet()});
+render();
+})();}
+(LANG==='en'?APP_EN:APP_PT)();
+
 </script>
 </body>
 </html>
